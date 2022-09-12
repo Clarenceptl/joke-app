@@ -1,0 +1,15 @@
+name: Test Workflow
+
+on:
+  push:
+    banches:
+      - "main"
+
+jobs:
+  echo:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Echo hello world
+        run: |
+          export NAME=Clarence
+          echo $NAME
