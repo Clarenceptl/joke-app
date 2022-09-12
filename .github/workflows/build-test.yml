@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Publish to Registry
-      - uses: elgohr/Publish-Docker-Github-Action@v4
+        uses: elgohr/Publish-Docker-Github-Action@v4
         with:
           name: clarenceptl/jokes_app
           username: ${{ secrets.DOCKER_USER_TOKEN }}
