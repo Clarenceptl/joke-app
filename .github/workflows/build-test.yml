@@ -31,9 +31,19 @@ jobs:
           heroku_app_name: "testintegrationcontinue12" #Must be unique in Heroku
           heroku_email: "killeurboy95@gmail.com"
   
-  deploy-docker:
+  build-docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+  push-image-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish to Registry
+      - uses: elgohr/Publish-Docker-Github-Action@v4
+        with:
+          name: clarenceptl/jokes_app
+          username: ${{ secrets.DOCKER_USER_TOKEN }}
+          password: ${{ secrets.JOKE_APP }}
