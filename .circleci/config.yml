@@ -21,17 +21,17 @@ workflows:
   buildtest:
     jobs:
       - node/test:
-        filters:
-          branches:
-            only:
-              - circleci
+          filters:
+            branches:
+              only:
+                - circleci
 
       - node/run:
-        requires:
-          - "node/test"
-        npm-run: build
-        filters:
-          branches:
-            only:
-              - circleci
+          requires:
+            - "node/test"
+          npm-run: build
+          filters:
+            branches:
+              only:
+                - circleci
         
