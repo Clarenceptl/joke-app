@@ -1,22 +1,11 @@
 name: Events exercices
 
 on:
-  push:
-    branches: 
-      # Push 2
-      - dev
-    # # Push 3
-      - '!staging'
-    # OR (Push 3)
-    # branches-ignore:
-    #   - staging
-      # Push 4
-      - 'feat*'
-    # Push 5
-    paths:
-      - "*.ts"
-      # Push 6
-      - "$FOLDER/*"
+  pull_request:
+    types:
+      - opened
+      - closed
+
 jobs:
   print-event:
     runs-on: ubuntu-latest

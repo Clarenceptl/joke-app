@@ -1,0 +1,31 @@
+name: Events exercices
+
+on:
+  push:
+    branches: 
+      # Push 2
+      - dev
+    # # Push 3
+      - '!staging'
+    # ou pour ignorer juste 1 branch (on retire branchs)
+    # branches-ignore:
+    #   - staging
+      # Push 4
+      - 'feat*'
+    # Push 5
+    paths:
+      - "*.ts"
+      # Push 6
+      - "$FOLDER/*"
+jobs:
+  print-event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the event that triggered this workflow
+        run: |
+          echo ${{ github.event_name }}
+      - name: Print the current time
+        run: |
+          echo $(date)
+
